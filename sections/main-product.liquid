@@ -92,7 +92,7 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class='page-width'>
     <div class='product-layout'>
-      <div class='py-12'>
+      <div class='pb-12'>
         {% render 'product-media-gallery', variant_images: variant_images %}
       </div>
       <div class='product__info-wrapper{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
