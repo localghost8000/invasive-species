@@ -1,5 +1,5 @@
 <div
-  class='h-[70vh] flex flex-col items-center justify-center -mt-[100px]'
+  class='max-w-screen-xl mx-auto aspect-[3/2] flex flex-col items-center justify-center -mt-[30px]'
   {% if section.settings.background_image != blank %}
     style='background-image: url({{ section.settings.background_image | img_url: 'master' }}); background-size: cover; background-position: center;'
   {% endif %}
@@ -10,7 +10,7 @@
   <div class='relative z-10 flex flex-col items-center justify-center w-full max-w-md md:max-w-6xl mx-auto px-8 py-12'>
     <div
       style='background: radial-gradient(50% 50% at 50% 50%, #FFF 43.94%, rgba(255, 255, 255, 0.00) 100%); }'
-      class='bg-white absolute w-[200%] h-[150%]'
+      class='bg-white absolute w-[100%] h-[150%]'
     >
       &nbsp;
     </div>
@@ -23,7 +23,7 @@
       {% endif %}
 
       {% if section.settings.description != blank %}
-        <div class='font-sans text-xl md:text-3xl uppercase text-center mb-2'>
+        <div class='max-w-[375px] mx-auto font-sans text-xl md:text-3xl uppercase text-center mb-2'>
           {{ section.settings.description }}
         </div>
       {% endif %}
