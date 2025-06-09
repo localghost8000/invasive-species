@@ -1,0 +1,238 @@
+<!-- Product Showcase Section -->
+<div class='w-full py-8 md:py-16'>
+  <div class='container mx-auto'>
+    {% if section.settings.product != blank %}
+      {% assign product = section.settings.product %}
+
+      <!-- Product Images Row (always 2-up) -->
+      <div class='flex w-full gap-8 mb-8'>
+        {% if section.settings.product_image_1 != blank %}
+          <a href='{{ product.url }}' class='w-1/2 relative group'>
+            {{
+              section.settings.product_image_1
+              | image_url: width: 800
+              | image_tag: loading: 'lazy', class: 'w-full transition-opacity', alt: product.title
+            }}
+          </a>
+        {% else %}
+          <!-- Fallback to product's first image -->
+          <a href='{{ product.url }}' class='w-1/2 relative group'>
+            {% if product.featured_image %}
+              {{
+                product.featured_image
+                | image_url: width: 800
+                | image_tag: loading: 'lazy', class: 'w-full transition-opacity', alt: product.title
+              }}
+            {% else %}
+              <div class='w-full h-full bg-gray-200 flex items-center justify-center'>
+                <span class='text-gray-400 uppercase'>No Image</span>
+              </div>
+            {% endif %}
+          </a>
+        {% endif %}
+
+        {% if section.settings.product_image_2 != blank %}
+          <a href='{{ product.url }}' class='w-1/2 relative group'>
+            {{
+              section.settings.product_image_2
+              | image_url: width: 800
+              | image_tag: loading: 'lazy', class: 'w-full transition-opacity', alt: product.title
+            }}
+          </a>
+        {% else %}
+          <!-- Fallback to product's second image -->
+          <a href='{{ product.url }}' class='w-1/2 relative group'>
+            {% if product.images[1] %}
+              {{
+                product.images[1]
+                | image_url: width: 800
+                | image_tag: loading: 'lazy', class: 'w-full transition-opacity', alt: product.title
+              }}
+            {% else %}
+              <div class='w-full h-full bg-gray-200 flex items-center justify-center'>
+                <span class='text-gray-400 uppercase'>No Image</span>
+              </div>
+            {% endif %}
+          </a>
+        {% endif %}
+      </div>
+
+      <!-- Content Row: Number/Text + Seed Image -->
+      <div class='flex flex-col lg:flex-row gap-8 {% if section.settings.layout == 'image_right' %}lg:flex-row-reverse{% endif %}'>
+        <!-- Text Content with Number -->
+        <div class='flex-1 flex flex-col lg:flex-row lg:items-start gap-4'>
+          <!-- Number Circle -->
+          {% if section.settings.show_number and section.settings.number != blank %}
+            <div class='flex-shrink-0'>
+              <div class='w-16 h-16 border-2 border-black text-black rounded-full flex items-center justify-center font-serif text-3xl font-medium'>
+                {{ section.settings.number }}
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- Text Content -->
+          <div class='flex-1'>
+            <a href='{{ product.url }}' class='block group'>
+              <h2 class='font-serif text-3xl md:text-4xl lg:text-7xl font-medium mb-4 uppercase group-hover:opacity-70 transition-opacity'>
+                {% if section.settings.custom_heading != blank %}
+                  {{ section.settings.custom_heading }}
+                {% else %}
+                  {{ product.title }}
+                {% endif %}
+              </h2>
+            </a>
+
+            {% if section.settings.show_price %}
+              <div class='font-sans text:xl md:text-3xl mb-4 uppercase'>
+                {% if product.compare_at_price > product.price %}
+                  <span class='text-red-600'>{{ product.price | money }}</span>
+                  <span class='text-gray-500 line-through ml-2'>{{ product.compare_at_price | money }}</span>
+                {% else %}
+                  <span>{{ product.price | money }}</span>
+                {% endif %}
+              </div>
+            {% endif %}
+
+            <div class='font-sans text-xl lg:text-2xl leading-relaxed uppercase space-y-4'>
+              {% if section.settings.custom_description != blank %}
+                {{ section.settings.custom_description }}
+              {% else %}
+                {{ product.description }}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Seed Image -->
+        {% if section.settings.seed_image != blank %}
+          <div class='flex-1 product-showcase-seed-image'>
+            <div class='w-full relative aspect-[3/2]'>
+              {{
+                section.settings.seed_image
+                | image_url: width: 600
+                | image_tag: loading: 'lazy', class: 'w-full h-full object-cover', alt: ''
+              }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    {% else %}
+      <!-- Placeholder when no product is selected -->
+      <div class='text-center py-16 bg-gray-100'>
+        <p class='text-gray-500 uppercase'>Please select a product in the theme editor</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Showcase",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "header",
+      "content": "Product Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_1",
+      "label": "Product Image 1",
+      "info": "Custom image for left side. Falls back to product's first image if not set."
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_2",
+      "label": "Product Image 2",
+      "info": "Custom image for right side. Falls back to product's second image if not set."
+    },
+    {
+      "type": "header",
+      "content": "Number Badge"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_number",
+      "label": "Show number badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "number",
+      "label": "Number",
+      "default": "1",
+      "info": "Number to display in the circle badge"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "custom_heading",
+      "label": "Custom Heading",
+      "info": "Leave blank to use product title"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Show price",
+      "default": false
+    },
+    {
+      "type": "richtext",
+      "id": "custom_description",
+      "label": "Custom Description",
+      "info": "Leave blank to use product description"
+    },
+    {
+      "type": "header",
+      "content": "Seed Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "seed_image",
+      "label": "Seed Image"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "image_right",
+          "label": "Text left, Seed image right"
+        },
+        {
+          "value": "image_left",
+          "label": "Text right, Seed image left"
+        }
+      ],
+      "default": "image_right"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Showcase",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  /* Hide any automatic image captions or titles */
+  .product-showcase-seed-image figcaption,
+  .product-showcase-seed-image .image-caption,
+  .product-showcase-seed-image .img-caption {
+    display: none !important;
+  }
+</style>

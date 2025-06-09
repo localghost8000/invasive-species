@@ -1,0 +1,74 @@
+<div
+  class='h-[70vh] flex flex-col items-center justify-center -mt-[100px]'
+  {% if section.settings.background_image != blank %}
+    style='background-image: url({{ section.settings.background_image | img_url: 'master' }}); background-size: cover; background-position: center;'
+  {% endif %}
+>
+  <!-- Hidden H1 for SEO -->
+  <h1 class='sr-only'>{{ shop.name }}</h1>
+
+  <div class='relative z-10 flex flex-col items-center justify-center w-full max-w-md md:max-w-6xl mx-auto px-8 py-12'>
+    <div
+      style='background: radial-gradient(50% 50% at 50% 50%, #FFF 43.94%, rgba(255, 255, 255, 0.00) 100%); }'
+      class='bg-white absolute w-[200%] h-[150%]'
+    >
+      &nbsp;
+    </div>
+
+    <div class='relative z-20 w-full text-center'>
+      {% if section.settings.logo != blank %}
+        <div class='mb-4'>
+          {{ section.settings.logo | img_url: 'master' | img_tag: shop.name, 'w-full h-auto' }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class='font-sans text-xl md:text-3xl uppercase text-center mb-2'>
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style>
+  ::selection {
+    background-color: #39ff14;
+    color: #000000;
+  }
+
+  ::-moz-selection {
+    background-color: #39ff14;
+    color: #000000;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Hero",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero"
+    }
+  ]
+}
+{% endschema %}
