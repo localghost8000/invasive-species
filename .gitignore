@@ -9,3 +9,18 @@
 ehthumbs.db
 Thumbs.db
 node_modules
+config/settings_data.json
+config/settings_schema.json
+
+# Template files with content (if you're not customizing them)
+templates/*.json
+
+# Section group files (usually contain content)
+sections/group-*.json
+
+# Locales (unless you're customizing translations)
+locales/*.json
+
+# Optional: Ignore specific sections with content
+sections/*-content.json
+sections/*-settings.json

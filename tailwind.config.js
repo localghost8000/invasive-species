@@ -17,6 +17,10 @@ module.exports = {
         serif: ['Devinne', 'serif'], // Add your serif font
         sans: ['Greed', 'sans-serif'], // Add your sans-serif font
       },
+      colors: {
+        'lime-bright': '#32FF32',
+        'ram-dass-blue': '#2a0ad7',
+      },
     },
   },
   plugins: [],
