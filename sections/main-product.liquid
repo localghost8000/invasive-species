@@ -115,7 +115,7 @@
                 </p>
               {%- when 'title' -%}
                 <div
-                  class='product__title font-serif text-3xl md:text-4xl lg:text-7xl font-medium mb-4 uppercase'
+                  class='product__title font-serif text-3xl md:text-4xl lg:text-7xl font-medium mb-4 uppercase text-pretty'
                   {{ block.shopify_attributes }}
                 >
                   <h1>{{ product.title | escape }}</h1>
@@ -214,7 +214,7 @@
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div
-                    class='product__description font-sans text:xl md:text-3xl mb-4 uppercase space-y-4 rte quick-add-hidden'
+                    class='product__description font-serif text:xl md:text-3xl mb-4 uppercase space-y-4 rte quick-add-hidden'
                     {{ block.shopify_attributes }}
                   >
                     {{ product.description }}

@@ -1,16 +1,27 @@
-<div
-  class='max-w-screen-xl mx-auto aspect-[3/2] flex flex-col items-center justify-center -mt-[30px]'
-  {% if section.settings.background_image != blank %}
-    style='background-image: url({{ section.settings.background_image | img_url: 'master' }}); background-size: cover; background-position: center;'
-  {% endif %}
->
+<div class='relative max-w-screen-lg mx-auto aspect-square flex flex-col items-center justify-center -mt-[30px] overflow-hidden'>
   <!-- Hidden H1 for SEO -->
   <h1 class='sr-only'>{{ shop.name }}</h1>
 
+  {% if section.settings.background_image != blank %}
+    <!-- Background Image as proper img element -->
+    <img
+      src='{{ section.settings.background_image | img_url: '2048x' }}'
+      srcset='
+        {{ section.settings.background_image | img_url: '1024x' }} 1024w,
+        {{ section.settings.background_image | img_url: '1536x' }} 1536w,
+        {{ section.settings.background_image | img_url: '2048x' }} 2048w
+      '
+      sizes='(min-width: 1280px) 1280px, 100vw'
+      alt='{{ section.settings.background_image.alt | default: 'Hero background' }}'
+      class='absolute inset-0 w-full h-full object-cover'
+      loading='eager'
+    >
+  {% endif %}
+
   <div class='relative z-10 flex flex-col items-center justify-center w-full max-w-md md:max-w-6xl mx-auto px-8 py-12'>
     <div
-      style='background: radial-gradient(50% 50% at 50% 50%, #FFF 43.94%, rgba(255, 255, 255, 0.00) 100%); }'
-      class='bg-white absolute w-[100%] h-[150%]'
+      style='background: radial-gradient(50% 50% at 50% 50%, #FFF 43.94%, rgba(255, 255, 255, 0.00) 100%);'
+      class='bg-white absolute w-[150%] h-[150%]'
     >
       &nbsp;
     </div>
@@ -23,25 +34,13 @@
       {% endif %}
 
       {% if section.settings.description != blank %}
-        <div class='max-w-[375px] mx-auto font-sans text-xl md:text-3xl uppercase text-center mb-2 text-ram-dass-blue'>
+        <div class='max-w-[375px] mx-auto font-serif text-lg md:text-3xl uppercase text-center text-pretty'>
           {{ section.settings.description }}
         </div>
       {% endif %}
     </div>
   </div>
 </div>
-
-<style>
-  ::selection {
-    background-color: #39ff14;
-    color: #000000;
-  }
-
-  ::-moz-selection {
-    background-color: #39ff14;
-    color: #000000;
-  }
-</style>
 
 {% schema %}
 {

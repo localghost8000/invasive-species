@@ -11,6 +11,13 @@ module.exports = {
       container: {
         center: true,
         padding: '2rem', // Default padding for all screens
+        screens: {
+          sm: '640px',
+          md: '768px',
+          lg: '1024px',
+          xl: '1280px',
+          '2xl': '1280px', // This keeps it at 1280px instead of default 1536px
+        },
       },
       fontFamily: {
         heading: 'var(--font-heading-family)',

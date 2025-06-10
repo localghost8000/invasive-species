@@ -58,13 +58,13 @@
       </div>
 
       <!-- Content Row: Number/Text + Seed Image -->
-      <div class='flex flex-col lg:flex-row gap-8 mt-16 {% if section.settings.layout == 'image_right' %}lg:flex-row-reverse{% endif %}'>
+      <div class='flex flex-col group lg:flex-row gap-8 mt-16 {% if section.settings.layout == 'image_right' %}lg:flex-row-reverse{% endif %}'>
         <!-- Text Content with Number -->
         <div class='flex-1 flex flex-col lg:flex-row lg:items-start gap-4'>
           <!-- Number Circle -->
           {% if section.settings.show_number and section.settings.number != blank %}
             <div class='flex-shrink-0'>
-              <div class='w-16 h-16 border-2 border-black text-black rounded-full flex items-center justify-center font-serif text-3xl font-medium'>
+              <div class='w-12 h-12 md:w-16 md:h-16 border-2 border-black text-black group-hover:text-ram-dass-blue group-hover:border-ram-dass-blue rounded-full flex items-center justify-center font-serif text-2xl md:text-3xl text-pretty'>
                 {{ section.settings.number }}
               </div>
             </div>
@@ -72,8 +72,8 @@
 
           <!-- Text Content -->
           <div class='flex-1'>
-            <a href='{{ product.url }}' class='block group mb-8'>
-              <h2 class='font-serif text-3xl md:text-4xl lg:text-7xl font-medium mb-4 uppercase group-hover:opacity-70 transition-opacity'>
+            <a href='{{ product.url }}' class='block mb-4 lg:mb-8'>
+              <h2 class='font-serif text-4xl lg:text-6xl mb-4 uppercase group-hover:text-ram-dass-blue text-pretty'>
                 {% if section.settings.custom_heading != blank %}
                   {{ section.settings.custom_heading }}
                 {% else %}
@@ -93,7 +93,7 @@
               </div>
             {% endif %}
 
-            <div class='font-sans text-xl lg:text-2xl leading-relaxed uppercase space-y-4'>
+            <div class='font-serif text-xl lg:text-2xl leading-relaxed uppercase space-y-4 text-balance group-hover:text-ram-dass-blue'>
               {% if section.settings.custom_description != blank %}
                 {{ section.settings.custom_description }}
               {% else %}

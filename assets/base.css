@@ -3672,3 +3672,13 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+::selection {
+  background-color: #2a0ad7;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: #2a0ad7;
+  color: #ffffff;
+}
