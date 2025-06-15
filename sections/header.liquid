@@ -8,7 +8,7 @@
         {%- endif -%}
         <a href='{{ routes.root_url }}'>
           {%- if settings.logo != blank -%}
-            {{ settings.logo | image_url: width: 200 | image_tag: class: 'w-52', alt: shop.name }}
+            {{ settings.logo | image_url: width: 300 | image_tag: class: 'w-72', alt: shop.name }}
           {%- else -%}
             <span class='font-serif text-2xl font-medium'>{{ shop.name }}</span>
           {%- endif -%}
