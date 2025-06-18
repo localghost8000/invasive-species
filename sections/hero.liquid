@@ -21,7 +21,7 @@
   <div class='relative z-10 flex flex-col items-center justify-center w-full max-w-md md:max-w-6xl mx-auto px-8 py-12'>
     <div
       style='background: radial-gradient(50% 50% at 50% 50%, #FFF 43.94%, rgba(255, 255, 255, 0.00) 100%);'
-      class='bg-white absolute w-[150%] h-[150%]'
+      class='absolute w-[150%] h-[150%]'
     >
       &nbsp;
     </div>
@@ -34,9 +34,18 @@
       {% endif %}
 
       {% if section.settings.description != blank %}
-        <div class='max-w-[375px] mx-auto font-serif text-lg md:text-3xl uppercase text-center text-pretty'>
+        <div class='max-w-[375px] mx-auto font-serif text-lg md:text-3xl uppercase text-center text-pretty mb-6 [&_br]:block [&_br]:mb-2 [&_p]:mb-4 [&_p:last-child]:mb-0'>
           {{ section.settings.description }}
         </div>
+      {% endif %}
+
+      {% if section.settings.button_text != blank and section.settings.button_url != blank %}
+        <a
+          href='{{ section.settings.button_url }}'
+          class='inline-block font-serif uppercase px-6 py-3 bg-black text-white rounded-full hover:bg-ram-dass-blue transition-colors duration-200'
+        >
+          {{ section.settings.button_text }}
+        </a>
       {% endif %}
     </div>
   </div>
@@ -62,6 +71,16 @@
       "type": "richtext",
       "id": "description",
       "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
     }
   ],
   "presets": [

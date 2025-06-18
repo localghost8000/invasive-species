@@ -11,41 +11,128 @@
   "sections": {
     "hero_rUCMkN": {
       "type": "hero",
-      "name": "Hero",
       "settings": {
-        "background_image": "shopify://shop_images/bloom-cut-out.png",
-        "description": "<p>Garments for growing food, working in and moving through nature. Each piece purposely collects seeds, spores and fallen debris, carrying them to a new location. Possibly across county or country. Possibly a pollinator, possibly an invasive species…</p>"
+        "background_image": "shopify://shop_images/seed-hero-shadows.png",
+        "description": "<p>What if <em>we</em> are the invasive species? </p><p>A collection of clothing that encourages the redistribution of seeds by trapping them in tangled hems. </p>"
       }
     },
     "product_showcase_AUAdyp": {
       "type": "product-showcase",
-      "name": "Product Showcase",
       "settings": {
         "product": "orange-green-pollinator-coat",
-        "product_image_1": "shopify://shop_images/test-1_ddd158cf-8c16-4f0a-8036-43315b8669fa.png",
-        "product_image_2": "shopify://shop_images/test-2_072024a6-616f-4ccf-9c91-c41fc0b02006.png",
-        "show_number": true,
+        "product_image_1": "shopify://shop_images/autumn-seed-saver-coat-front.png",
+        "product_image_2": "shopify://shop_images/autumn-seed-saver-coat-back.png",
+        "show_number": false,
         "number": "1",
         "custom_heading": "",
         "show_price": false,
-        "custom_description": "",
+        "custom_description": "<p>  </p>",
         "seed_image": "shopify://shop_images/CalendulaScan.png",
         "layout": "image_left"
       }
     },
     "product_showcase_fRpVr3": {
       "type": "product-showcase",
-      "name": "Product Showcase",
       "settings": {
         "product": "black-trousers",
-        "product_image_1": "shopify://shop_images/2025_03_31_Leslie_Kulesh_Flat_Shots101759.png",
-        "product_image_2": "shopify://shop_images/2025_03_31_Leslie_Kulesh_Flat_Shots101763.png",
-        "show_number": true,
+        "product_image_1": "shopify://shop_images/zip-off-trousers-charcoal-pants.png",
+        "product_image_2": "shopify://shop_images/corbuseir-carob-rocbrune-cap-martin-2.png",
+        "show_number": false,
+        "number": "3",
+        "custom_heading": "",
+        "show_price": false,
+        "custom_description": "<p>  </p>",
+        "seed_image": "shopify://shop_images/palaisde-toky-oparis.png",
+        "layout": "image_right"
+      }
+    },
+    "product_showcase_dV9n3t": {
+      "type": "product-showcase",
+      "settings": {
+        "product": "beige-legionnaires-cap",
+        "product_image_1": "shopify://shop_images/seed-legionnaires-cap-beige.png",
+        "product_image_2": "shopify://shop_images/furry-tyree-seed-hyde-park.png",
+        "show_number": false,
+        "number": "7",
+        "custom_heading": "",
+        "show_price": false,
+        "custom_description": "<p>  </p>",
+        "seed_image": "shopify://shop_images/fava-bean.png",
+        "layout": "image_left"
+      }
+    },
+    "product_showcase_pnKy6p": {
+      "type": "product-showcase",
+      "settings": {
+        "product": "green-apron",
+        "product_image_1": "shopify://shop_images/outdoor-apron-sage.png",
+        "product_image_2": "shopify://shop_images/honesty-charleston-house-england.png",
+        "show_number": false,
+        "number": "6",
+        "custom_heading": "",
+        "show_price": false,
+        "custom_description": "<p>  </p>",
+        "seed_image": "shopify://shop_images/foxtail-laurel-canyon-la-ca-usa.png",
+        "layout": "image_right"
+      }
+    },
+    "product_showcase_4eHUPg": {
+      "type": "product-showcase",
+      "settings": {
+        "product": "pollinator-coat",
+        "product_image_1": "shopify://shop_images/spring-pollinator-coat-front.png",
+        "product_image_2": "shopify://shop_images/spring-pollinator-coat-back.png",
+        "show_number": false,
         "number": "2",
         "custom_heading": "",
         "show_price": false,
-        "custom_description": "",
-        "seed_image": "shopify://shop_images/CalendulaScan.png",
+        "custom_description": "<p>  </p>",
+        "seed_image": "shopify://shop_images/griffith-park-pine-cone.png",
+        "layout": "image_left"
+      }
+    },
+    "product_showcase_h8KkCc": {
+      "type": "product-showcase",
+      "settings": {
+        "product": "green-trousers",
+        "product_image_1": "shopify://shop_images/zip-off-trousers-sage-pants.png",
+        "product_image_2": "shopify://shop_images/nasturtium.png",
+        "show_number": false,
+        "number": "4",
+        "custom_heading": "",
+        "show_price": false,
+        "custom_description": "<p>  </p>",
+        "seed_image": "shopify://shop_images/furry-tyree-seed-hyde-park.png",
+        "layout": "image_right"
+      }
+    },
+    "product_showcase_EiwANj": {
+      "type": "product-showcase",
+      "settings": {
+        "product": "black-apron",
+        "product_image_1": "shopify://shop_images/outdoor-apron-charcoal.png",
+        "product_image_2": "shopify://shop_images/foxtail-laurel-canyon-la-ca-usa.png",
+        "show_number": false,
+        "number": "5",
+        "custom_heading": "",
+        "show_price": false,
+        "custom_description": "<p>  </p>",
+        "seed_image": "shopify://shop_images/jardin-majorelle-seed.png",
+        "layout": "image_left"
+      }
+    },
+    "product_showcase_faUkNR": {
+      "type": "product-showcase",
+      "settings": {
+        "product": "legionnaires-cap",
+        "product_image_1": "shopify://shop_images/seed-legionnaires-cap-green.png",
+        "product_image_2": "shopify://shop_images/hollyhock-eskisehir-turkey.png",
+        "show_number": false,
+        "number": "8",
+        "custom_heading": "",
+        "show_price": false,
+        "custom_description": "<p>  </p>",
+        "seed_image": "shopify://shop_images/boot.png",
         "layout": "image_right"
       }
     }
@@ -53,6 +140,12 @@
   "order": [
     "hero_rUCMkN",
     "product_showcase_AUAdyp",
-    "product_showcase_fRpVr3"
+    "product_showcase_fRpVr3",
+    "product_showcase_dV9n3t",
+    "product_showcase_pnKy6p",
+    "product_showcase_4eHUPg",
+    "product_showcase_h8KkCc",
+    "product_showcase_EiwANj",
+    "product_showcase_faUkNR"
   ]
 }

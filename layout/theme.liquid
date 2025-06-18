@@ -246,7 +246,7 @@
   </head>
 
   <body
-    class='gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}{% if settings.background_image %} {% if settings.background_size == 'cover' %}bg-cover{% elsif settings.background_size == 'contain' %}bg-contain{% elsif settings.background_size == 'repeat' %}bg-repeat{% endif %} {% if settings.background_position == 'center' %}bg-center{% elsif settings.background_position == 'top' %}bg-top{% elsif settings.background_position == 'bottom' %}bg-bottom{% endif %} bg-fixed bg-no-repeat{% endif %}'
+    class='overflow-x-hidden gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}{% if settings.background_image %} {% if settings.background_size == 'cover' %}bg-cover{% elsif settings.background_size == 'contain' %}bg-contain{% elsif settings.background_size == 'repeat' %}bg-repeat{% endif %} {% if settings.background_position == 'center' %}bg-center{% elsif settings.background_position == 'top' %}bg-top{% elsif settings.background_position == 'bottom' %}bg-bottom{% endif %} bg-fixed bg-no-repeat{% endif %}'
     {% if settings.background_image %}
       style="background-image: url('{{ settings.background_image | image_url }}');"
     {% endif %}

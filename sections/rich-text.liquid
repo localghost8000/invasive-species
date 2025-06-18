@@ -11,27 +11,39 @@
     }
   }
 {%- endstyle -%}
+<div>
+  <div class='container mx-auto px-8'>
+    <div class='relative section-{{ section.id }}-padding'>
+      <div class='relative max-w-4xl {% if section.settings.content_position == 'left' %}mr-auto{% elsif section.settings.content_position == 'right' %}ml-auto{% else %}mx-auto{% endif %} text-{{ section.settings.text_alignment | default: 'center' }}'>
+        {% if section.settings.show_gradient %}
+          <div
+            style='background: radial-gradient(50% 50% at 50% 50%, #FFF 43.94%, rgba(255, 255, 255, 0.00) 100%);'
+            class='absolute -top-1/4 -left-1/2 w-[200%] h-[150%] pointer-events-none'
+          >
+            &nbsp;
+          </div>
+        {% endif %}
 
-<div class='container mx-auto px-4'>
-  <div class='section-{{ section.id }}-padding'>
-    <div class='max-w-4xl {% if section.settings.content_position == 'left' %}mr-auto{% elsif section.settings.content_position == 'right' %}ml-auto{% else %}mx-auto{% endif %} text-{{ section.settings.text_alignment | default: 'center' }}'>
-      {% if section.settings.heading != blank %}
-        <h2 class='font-serif text-4xl lg:text-6xl mb-4 uppercase{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
-          {{ section.settings.heading }}
-        </h2>
-      {% endif %}
-
-      {% if section.settings.body != blank %}
-        <div
-          class='font-serif text-xl lg:text-2xl leading-relaxed uppercase space-y-4 text-balance{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-            style='--animation-order: 2;'
+        <div class='relative z-10'>
+          {% if section.settings.heading != blank %}
+            <h2 class='font-serif text-4xl lg:text-6xl mb-4 uppercase{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'>
+              {{ section.settings.heading }}
+            </h2>
           {% endif %}
-        >
-          {{ section.settings.body }}
+
+          {% if section.settings.body != blank %}
+            <div
+              class='font-serif text-xl lg:text-2xl leading-relaxed uppercase space-y-4 text-balance{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}'
+              {% if settings.animations_reveal_on_scroll %}
+                data-cascade
+                style='--animation-order: 2;'
+              {% endif %}
+            >
+              {{ section.settings.body }}
+            </div>
+          {% endif %}
         </div>
-      {% endif %}
+      </div>
     </div>
   </div>
 </div>
@@ -50,6 +62,12 @@
       "id": "heading",
       "label": "Heading",
       "default": "Your Heading Here"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_gradient",
+      "label": "Show Background Gradient",
+      "default": true
     },
     {
       "type": "select",

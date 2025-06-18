@@ -18,8 +18,24 @@
         {%- endif -%}
       </div>
 
-      <!-- Cart (right) -->
-      <div class='ml-auto'>
+      <!-- Navigation and Cart (right) -->
+      <div class='ml-auto flex items-center gap-4'>
+        <!-- Navigation Menu -->
+        {%- assign menu = linklists['main-menu'] -%}
+        {%- if menu.links.size > 0 -%}
+          {%- for link in menu.links -%}
+            <a
+              href='{{ link.url }}'
+              class='font-serif text-xl text-ram-dass-blue uppercase hover:opacity-70 transition-opacity'
+            >
+              {{ link.title }}
+            </a>
+          {%- endfor -%}
+          <!-- Separator -->
+          <span class='text-ram-dass-blue text-xl'>•</span>
+        {%- endif -%}
+
+        <!-- Cart -->
         <a
           href='{{ routes.cart_url }}'
           class='font-serif text-xl text-ram-dass-blue uppercase hover:opacity-70 transition-opacity flex items-center gap-2'
@@ -43,6 +59,13 @@
 {% schema %}
 {
   "name": "Header",
-  "settings": []
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "main_menu",
+      "label": "Navigation Menu",
+      "default": "main-menu"
+    }
+  ]
 }
 {% endschema %}
