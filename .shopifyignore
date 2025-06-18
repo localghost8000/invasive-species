@@ -1,2 +1,5 @@
-package.json
-package-lock.json
+config/settings_data.json
+config/settings_schema.json
+locales/
+templates/*.json
+sections/*_settings.json
