@@ -88,19 +88,16 @@ variant-selects {
   left: calc(var(--variant-pills-border-width) * -1);
   z-index: -1;
   border-radius: var(--variant-pills-radius);
-  box-shadow: var(--variant-pills-shadow-horizontal-offset)
-    var(--variant-pills-shadow-vertical-offset)
-    var(--variant-pills-shadow-blur-radius)
-    rgba(var(--color-shadow), var(--variant-pills-shadow-opacity));
+  border: 1px solid black;
+  background: white;
 }
 
 .product-form__input--pill input[type='radio'] + label:hover {
-  border-color: rgb(var(--color-foreground));
 }
 
 .product-form__input--pill input[type='radio']:checked + label {
-  background-color: rgb(var(--color-foreground));
-  color: rgb(var(--color-background));
+  background-color: #2a0ad7;
+  color: white;
 }
 
 @media screen and (forced-colors: active) {

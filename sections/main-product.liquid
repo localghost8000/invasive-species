@@ -140,7 +140,7 @@
                   </div>
                 {%- endif -%}
                 {%- if cart.taxes_included or cart.duties_included or shop.shipping_policy.body != blank -%}
-                  <div class='product__tax font-sans uppercase caption rte'>
+                  <div class='product__tax font-serif uppercase caption rte'>
                     {%- if cart.duties_included and cart.taxes_included -%}
                       {{ 'products.product.duties_and_taxes_included' | t }}
                     {%- elsif cart.taxes_included -%}
@@ -237,7 +237,7 @@
                   <details id='Details-{{ block.id }}-{{ section.id }}'>
                     <summary>
                       <div class='summary__title'>
-                        <h2 class='h4 accordion__title inline-richtext font-sans uppercase'>
+                        <h2 class='h4 accordion__title inline-richtext font-serif uppercase'>
                           {{ block.settings.heading | default: block.settings.page.title | escape }}
                         </h2>
                       </div>

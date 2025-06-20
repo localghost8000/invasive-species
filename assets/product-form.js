@@ -35,14 +35,21 @@ if (!customElements.get('product-form')) {
         delete config.headers['Content-Type'];
 
         const formData = new FormData(this.form);
+
+        // Add safety check for cart methods
         if (this.cart) {
-          formData.append(
-            'sections',
-            this.cart.getSectionsToRender().map((section) => section.id),
-          );
+          if (typeof this.cart.getSectionsToRender === 'function') {
+            formData.append(
+              'sections',
+              this.cart.getSectionsToRender().map((section) => section.id),
+            );
+          }
           formData.append('sections_url', window.location.pathname);
-          this.cart.setActiveElement(document.activeElement);
+          if (typeof this.cart.setActiveElement === 'function') {
+            this.cart.setActiveElement(document.activeElement);
+          }
         }
+
         config.body = formData;
 
         fetch(`${routes.cart_add_url}`, config)
@@ -83,14 +90,21 @@ if (!customElements.get('product-form')) {
                 'modalClosed',
                 () => {
                   setTimeout(() => {
-                    this.cart.renderContents(response);
+                    if (
+                      this.cart &&
+                      typeof this.cart.renderContents === 'function'
+                    ) {
+                      this.cart.renderContents(response);
+                    }
                   });
                 },
                 { once: true },
               );
               quickAddModal.hide(true);
             } else {
-              this.cart.renderContents(response);
+              if (this.cart && typeof this.cart.renderContents === 'function') {
+                this.cart.renderContents(response);
+              }
             }
           })
           .catch((e) => {
