@@ -1,5 +1,5 @@
 <header class='w-full'>
-  <div class='container py-12'>
+  <div class='container py-8 md:py-12'>
     <div class='flex items-center justify-between'>
       <!-- Logo (centered) -->
       <div class='absolute left-1/2 transform -translate-x-1/2'>
@@ -8,9 +8,9 @@
         {%- endif -%}
         <a href='{{ routes.root_url }}'>
           {%- if settings.logo != blank -%}
-            {{ settings.logo | image_url: width: 300 | image_tag: class: 'w-72', alt: shop.name }}
+            {{ settings.logo | image_url: width: 300 | image_tag: class: 'w-36 md:w-72', alt: shop.name }}
           {%- else -%}
-            <span class='font-serif text-2xl font-medium'>{{ shop.name }}</span>
+            <span class='font-serif text-lg md:text-2xl font-medium'>{{ shop.name }}</span>
           {%- endif -%}
         </a>
         {%- if request.page_type == 'index' -%}
@@ -19,26 +19,26 @@
       </div>
 
       <!-- Navigation and Cart (right) -->
-      <div class='ml-auto flex items-center gap-4'>
+      <div class='ml-auto flex items-center gap-3 md:gap-4'>
         <!-- Navigation Menu -->
         {%- assign menu = linklists['main-menu'] -%}
         {%- if menu.links.size > 0 -%}
           {%- for link in menu.links -%}
             <a
               href='{{ link.url }}'
-              class='font-serif text-xl text-ram-dass-blue uppercase hover:opacity-70 transition-opacity'
+              class='font-serif text-lg md:text-xl text-ram-dass-blue uppercase hover:opacity-70 transition-opacity'
             >
               {{ link.title }}
             </a>
           {%- endfor -%}
           <!-- Separator -->
-          <span class='text-ram-dass-blue text-xl'>•</span>
+          <span class='text-ram-dass-blue text-lg md:text-xl'>•</span>
         {%- endif -%}
 
         <!-- Cart -->
         <a
           href='{{ routes.cart_url }}'
-          class='font-serif text-xl text-ram-dass-blue uppercase hover:opacity-70 transition-opacity flex items-center gap-2'
+          class='font-serif text-lg md:text-xl text-ram-dass-blue uppercase hover:opacity-70 transition-opacity flex items-center gap-2'
         >
           <span>Cart</span>
           {%- if cart != empty -%}
